@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    // Runs first, before anything else on the page.
+    // Keeps the path, query and #hash: /about?x=1#y -> new site /about?x=1#y
+    location.replace({{ site.new_site | jsonify }}
+      + location.pathname.replace(/\/index\.html$/, "/")
+      + location.search + location.hash);
+  </script>
+  <!-- Only for visitors without JavaScript: goes to the new site's front page. -->
+  <noscript><meta http-equiv="refresh" content="0; url={{ site.new_site }}/"></noscript>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>webie has moved</title>
+  <link rel="canonical" href="{{ site.new_site }}/">
+</head>
+<body>
+  <p>webie has moved to <a href="{{ site.new_site }}/">{{ site.new_site | remove_first: "https://" }}</a>.</p>
+</body>
+</html>
