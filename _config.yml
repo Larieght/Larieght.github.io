@@ -1,0 +1,7 @@
+# Where this site sends visitors. This is the ONE place to change it.
+# No trailing slash.
+new_site: https://tydtr0026.dpdns.org
+
+# Not part of the website.
+exclude:
+  - README.md
